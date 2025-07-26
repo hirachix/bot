@@ -1,0 +1,44 @@
+// === RPG CLASS DATA ===
+const classData = {
+    fighter: { attack: 5, defense: 3, weapon: 'Pedang Baja' },
+    assassin: { attack: 7, defense: 2, weapon: 'Belati Hitam' },
+    mage: { attack: 4, defense: 2, weapon: 'Tongkat Sihir' },
+    tank: { attack: 2, defense: 6, weapon: 'Perisai Baja' },
+    archer: { attack: 5, defense: 2, weapon: 'Busur Panah' }
+};
+
+// === SHOP ITEM ===
+const shopItems = [
+    { nama: 'Pedang Baja', rarity: 'Common', harga: 5000, attack: 5 },
+    { nama: 'Pedang Pembunuh Dewa', rarity: 'Legendary', harga: 50000, attack: 99999 },
+    { nama: 'Kapak Besi', rarity: 'Uncommon', harga: 8000, attack: 8 },
+    { nama: 'Tombak Emas', rarity: 'Rare', harga: 15000, attack: 12 },
+    { nama: 'Armor Kulit', rarity: 'Common', harga: 6000, defense: 4 },
+    { nama: 'Perisai Besi', rarity: 'Uncommon', harga: 10000, defense: 7 },
+    { nama: 'Helm Baja', rarity: 'Rare', harga: 12000, defense: 10 }
+];
+
+// === MONSTER LIST ===
+const monsterList = [
+    { nama: 'Slime', hp: 10, attack: 2, rewardMoney: 2000, rewardXp: 30 },
+    { nama: 'Goblin', hp: 20, attack: 5, rewardMoney: 3000, rewardXp: 50 },
+    { nama: 'Orc', hp: 40, attack: 8, rewardMoney: 5000, rewardXp: 80 },
+    { nama: 'Troll', hp: 60, attack: 12, rewardMoney: 8000, rewardXp: 100 },
+    { nama: 'Naga', hp: 100, attack: 20, rewardMoney: 15000, rewardXp: 200 }
+];
+
+// === PET LIST ===
+// PET LIST dengan level dasar
+const petList = [
+    { nama: 'Wolf Pup', rarity: 'Common', attack: 2, defense: 1, harga: 5000, baseXp: 0, level: 1 },
+    { nama: 'Fire Fox', rarity: 'Uncommon', attack: 4, defense: 2, harga: 10000, baseXp: 0, level: 1 },
+    { nama: 'Ice Dragon', rarity: 'Rare', attack: 7, defense: 5, harga: 20000, baseXp: 0, level: 1 },
+    { nama: 'Phoenix', rarity: 'Legendary', attack: 10, defense: 8, harga: 50000, baseXp: 0, level: 1 }
+];
+
+module.exports = {
+    classData,
+    shopItems,
+    monsterList,
+    petList
+};
