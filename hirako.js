@@ -3136,6 +3136,30 @@ case 'spotifysearch': {
     }
 }
 break;
+
+case 'ktp': {
+    if (!text) return m.reply(`Contoh:\n${prefix}ktp provinsi|kota|nik|nama|ttl|jenis_kelamin|gol_darah|alamat|rt/rw|kel_desa|kecamatan|agama|status|pekerjaan|kewarganegaraan|masa_berlaku|terbuat|link_foto`);
+
+    let [
+        provinsi, kota, nik, nama, ttl, jenis_kelamin, gol_darah, alamat, rtrw,
+        kel_desa, kecamatan, agama, status, pekerjaan, kewarganegaraan, masa_berlaku, terbuat, pas_photo
+    ] = text.split('|');
+
+    if (!pas_photo) return m.reply('Link foto (pas_photo) belum diberikan!');
+
+    let apiUrl = `https://hirakoxs.ddns.net/tools/ktp?provinsi=${encodeURIComponent(provinsi)}&kota=${encodeURIComponent(kota)}&nik=${encodeURIComponent(nik)}&nama=${encodeURIComponent(nama)}&ttl=${encodeURIComponent(ttl)}&jenis_kelamin=${encodeURIComponent(jenis_kelamin)}&golongan_darah=${encodeURIComponent(gol_darah)}&alamat=${encodeURIComponent(alamat)}&rt/rw=${encodeURIComponent(rtrw)}&kel/desa=${encodeURIComponent(kel_desa)}&kecamatan=${encodeURIComponent(kecamatan)}&agama=${encodeURIComponent(agama)}&status=${encodeURIComponent(status)}&pekerjaan=${encodeURIComponent(pekerjaan)}&kewarganegaraan=${encodeURIComponent(kewarganegaraan)}&masa_berlaku=${encodeURIComponent(masa_berlaku)}&terbuat=${encodeURIComponent(terbuat)}&pas_photo=${encodeURIComponent(pas_photo)}&apikey=hirako`;
+
+    try {
+        let res = await axios.get(apiUrl, { responseType: 'arraybuffer' });
+        await hirako.sendMessage(m.chat, {
+            image: res.data,
+            caption: `🪪 KTP berhasil dibuat untuk ${nama}`
+        }, { quoted: m });
+    } catch (e) {
+        m.reply(`Gagal membuat KTP: ${e.message}`);
+    }
+}
+break;
 			
 			case 'tenor': {
 				if (!text) return m.reply(`Example: ${prefix + command} alone`)
